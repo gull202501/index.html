@@ -1,0 +1,104 @@
+<?php
+$success = false;
+$name = $email = $phone = $message = $product = $quantity = $address = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $name     = htmlspecialchars(trim($_POST['name'] ?? ''));
+  $email    = htmlspecialchars(trim($_POST['email'] ?? ''));
+  $phone    = htmlspecialchars(trim($_POST['phone'] ?? ''));
+  $message  = htmlspecialchars(trim($_POST['message'] ?? ''));
+  $product  = htmlspecialchars(trim($_POST['product'] ?? ''));
+  $quantity = htmlspecialchars(trim($_POST['quantity'] ?? ''));
+  $address  = htmlspecialchars(trim($_POST['address'] ?? ''));
+
+  // Basic validation (optional: you can add more here)
+  if ($name && $email && $phone && $product && $quantity && $address) {
+    $success = true;
+  }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clothify - Order Form</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      margin-bottom: 1em;
+      color: #c2185b;
+    }
+    form {
+      background: #fff;
+      padding: 1em;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    input, textarea {
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 1em;
+    }
+    input[type="submit"] {
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 1em;
+      margin-bottom: 1em;
+      border-radius: 5px;
+      max-width: 500px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Place Your Order</h2>
+
+<?php if ($success): ?>
+  <div class="success">
+    Thank you <strong><?= $name ?></strong>!<br>
+    Your order for <strong><?= $quantity ?> x <?= $product ?></strong> has been received.<br>
+    We will contact you at <strong><?= $phone ?></strong> and deliver to <strong><?= $address ?></strong>.
+  </div>
+<?php endif; ?>
+
+<form method="POST">
+  <input type="text" name="name" required placeholder="Your Name" value="<?= $name ?>" />
+  <input type="email" name="email" required placeholder="Your Email" value="<?= $email ?>" />
+  <input type="tel" name="phone" required placeholder="Contact Number" value="<?= $phone ?>" />
+  <textarea name="message" placeholder="Additional Message (optional)"><?= $message ?></textarea>
+  <input type="text" name="product" required placeholder="Product Name" value="<?= $product ?>" />
+  <input type="number" name="quantity" required placeholder="Quantity" min="1" value="<?= $quantity ?>" />
+  <input type="text" name="address" required placeholder="Delivery Address" value="<?= $address ?>" />
+  <input type="submit" value="Submit Order" />
+</form>
+
+</body>
+</html>

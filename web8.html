@@ -1,0 +1,181 @@
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Job Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c2c2c;
+            color: #fff;
+        }
+        header {
+            background-color: #3e2723;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2em;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            color: #ffcc00;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        .banner {
+            background-color: #3e2723;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .banner h2 {
+            margin-bottom: 10px;
+        }
+        .banner p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .banner .btn {
+            background-color: #ffcc00;
+            color: #3e2723;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+        }
+        .form-section {
+            background-color: #3e2723;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        .form-section h3 {
+            margin-bottom: 20px;
+        }
+        .form-section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-section input[type="text"],
+        .form-section input[type="email"],
+        .form-section input[type="file"],
+        .form-section input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #000;
+        }
+        .form-section button {
+            background-color: #ffcc00;
+            color: #3e2723;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+        footer {
+            background-color: #3e2723;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        footer p {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Police Job Portal</h1>
+    <p>Your gateway to a career in law enforcement</p>
+</header>
+
+<nav>
+    <a href="#login">Login</a>
+    <a href="#register">Register</a>
+    <a href="#apply">Apply</a>
+</nav>
+
+<section class="banner">
+    <h2>Join the Police Force</h2>
+    <p>Serve and protect your community</p>
+    <a href="#apply" class="btn">Apply Now</a>
+</section>
+
+<section id="login" class="form-section">
+    <h3>Login</h3>
+    <form method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit" name="login">Login</button>
+    </form>
+</section>
+
+<section id="register" class="form-section">
+    <h3>Register</h3>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="whatsapp">WhatsApp Number:</label>
+        <input type="text" id="whatsapp" name="whatsapp" required>
+        <label for="image">Profile Picture:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+        <button type="submit" name="register">Register</button>
+    </form>
+</section>
+
+<section id="jobs">
+    <h2>Available Police Jobs</h2>
+    <div class="job-card">
+        <h3>Police Constable</h3>
+        <p>Location: City A</p>
+        <p>Last Date: 30th June 2025</p>
+        <a href="#apply" class="btn">Apply Now</a>
+    </div>
+    <div class="job-card">
+        <h3>Police Sub-Inspector</h3>
+        <p>Location: City B</p>
+        <p>Last Date: 15th July 2025</p>
+        <a href="#apply" class="btn">Apply Now</a>
+    </div>
+</section>
+
+<section id="apply" class="form-section">
+    <h3>Apply for a Job</h3>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="cv">Upload CV:</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+        <button type="submit" name="apply">Submit Application</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Police Job Portal</p>
+</footer>
+
+</body>
+</html>
